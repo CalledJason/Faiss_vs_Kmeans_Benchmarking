@@ -11,7 +11,7 @@ def prepare_data(max_samples: int = 60_000) -> None:
     dataset = load_dataset("ag_news", split="train")
 
     df = pd.DataFrame(dataset).sample(n=max_samples, random_state=42).reset_index(drop=True)
-    output_parquet = "data/ag-news_subset.parquet"
+    output_parquet = "data/ag_news_subset.parquet"
     df.to_parquet(output_parquet, index=False)
     print(f"Saved to {output_parquet} ({len(df):,} rows).")
 
