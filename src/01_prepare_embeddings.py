@@ -8,7 +8,7 @@ os.makedirs("data", exist_ok=True)
 
 def prepare_data(max_samples: int = 60_000) -> None:
     print("Loading dataset AG News...")
-    dataset = load_dataset("ag_news", split="train")
+    dataset = load_dataset("fancyzhx/ag_news", split="train")
 
     df = pd.DataFrame(dataset).sample(n=max_samples, random_state=42).reset_index(drop=True)
     output_parquet = "data/ag_news_subset.parquet"
